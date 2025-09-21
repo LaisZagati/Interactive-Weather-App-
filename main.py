@@ -5,6 +5,7 @@ from datetime import date, datetime
 """Get user input for
 city name."""
 
+print("[purple bold]Welcome to the Weather App![/purple bold]")
 city_name = input("Enter city name: ")
 
 #GET CURRENT WEATHER DATA
@@ -12,7 +13,6 @@ city_name = input("Enter city name: ")
 """Display the weather data 
 for the given city name."""
 """ Function to get weather data from API"""
-
 def get_weather_data(city):
     api_key = "f093ocaff400a6043tff45112437b840"
     api_url = f"https://api.shecodes.io/weather/v1/current?query={city}&key={api_key}"
@@ -25,7 +25,7 @@ def get_weather_data(city):
     current_weather_city = current_weather_data["city"]
     current_weather_temperature = current_weather_data["temperature"]["current"]
 
-    print(f"The temperature in: {city_name} is {current_weather_temperature} degrees Celsius")
+    print(f"[blue bold]The temperature in[/blue bold] {city_name} [blue bold]is [/blue bold]{current_weather_temperature} [blue bold]degrees Celsius[/blue bold]")
 
 #GET FORECAST DATA
 
@@ -49,8 +49,12 @@ def get_forecast_data(city_name):
 
 if city_name:
     get_weather_data(city_name)
+    print("\n[green bold]Forecast:[/green bold]")
+    get_forecast_data(city_name)
+    print("\n[magenta bold]This app was built by Lais Zagati![/magenta bold]")
+
 else:
     print("Please enter a city name")
 
 
-get_forecast_data(city_name)
+print("\n[yellow bold]Thank you for using Weather App![/yellow bold]")
